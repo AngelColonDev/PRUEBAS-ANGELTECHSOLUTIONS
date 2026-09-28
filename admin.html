@@ -1,0 +1,496 @@
+﻿<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<link rel="canonical" href="https://angeltechsolutions.dev/admin.html">
+<link rel="stylesheet" href="/assets/tailwind.css">
+<script src="/js/admin-guard.js"></script>
+<noscript><meta http-equiv="refresh" content="0;url=admin-login.html"></noscript>
+<title>AngelDev — Panel Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen" class="hidden min-h-screen flex items-center justify-center px-4">
+  <div style="width:100%;max-width:400px">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/q_auto/f_auto/v1781464069/favicon-32x32_flnhtq.png" alt="AngelDev" width="18" height="18" style="width:18px;height:18px;flex-shrink:0">
+        <span class="text-lg font-bold tracking-tight">Angel<span style="color:#EF4444">Dev</span></span>
+      </div>
+      <p class="text-sm text-slate-500">Panel de Administración</p>
+    </div>
+    <div class="card">
+      <h2 class="text-base font-semibold mb-5">Iniciar sesión</h2>
+      <div class="space-y-4">
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Usuario</label><input id="loginUser" class="input" type="text" placeholder="Usuario" autocomplete="username"></div>
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Contraseña</label><input id="loginPass" class="input" type="password" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()"></div>
+        <p id="loginErr" class="hidden text-xs text-red-400">Usuario o contraseña incorrectos.</p>
+        <button onclick="doLogin()" class="btn btn-primary w-full justify-center">Entrar <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></button>
+        <a href="index.html" target="_self" rel="noopener" class="btn btn-outline w-full justify-center mt-1"><span class="iconify" data-icon="lucide:arrow-left" data-width="14"></span>Regresar al sitio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN APP -->
+<div id="adminApp" class="hidden">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="p-5 border-b border-white/[0.06]">
+      <div class="flex items-center gap-2">
+        <img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/q_auto/f_auto/v1781464069/favicon-32x32_flnhtq.png" alt="AngelDev" width="16" height="16" style="width:16px;height:16px;flex-shrink:0">
+        <span class="text-sm font-bold tracking-tight">Angel<span style="color:#EF4444">Dev</span></span>
+      </div>
+      <p class="text-[10px] text-slate-600 mt-1 uppercase tracking-wider">Panel Admin</p>
+    </div>
+    <nav class="flex-1 p-3 space-y-1 overflow-y-auto" id="sidebarNav">
+      <button onclick="goTo('dashboard')" class="nav-item active" data-page="dashboard"><span class="iconify" data-icon="lucide:layout-dashboard" data-width="15"></span>Dashboard</button>
+      <button onclick="goTo('solicitudes')" class="nav-item" data-page="solicitudes"><span class="iconify" data-icon="lucide:inbox" data-width="15"></span>Solicitudes</button>
+      <button onclick="goTo('resenas')" class="nav-item" data-page="resenas"><span class="iconify" data-icon="lucide:star" data-width="15"></span>Reseñas</button>
+      <button onclick="goTo('productos')" class="nav-item" data-page="productos"><span class="iconify" data-icon="lucide:smartphone" data-width="15"></span>Productos</button>
+      <button onclick="goTo('dispositivos')" class="nav-item" data-page="dispositivos"><span class="iconify" data-icon="lucide:store" data-width="15"></span>Dispositivos en Venta <span id="dispositivosBadge" class="ml-auto text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 px-1.5 py-0.5 rounded-full hidden">0</span></button>
+      <button onclick="goTo('colaboradores')" class="nav-item" data-page="colaboradores"><span class="iconify" data-icon="lucide:users-2" data-width="15"></span>Colaboradores</button>
+      <button onclick="goTo('gastos')" class="nav-item" data-page="gastos"><span class="iconify" data-icon="lucide:wallet" data-width="15"></span>Gastos</button>
+      <button onclick="goTo('searchconsole')" class="nav-item" data-page="searchconsole"><span class="iconify" data-icon="lucide:bar-chart-2" data-width="15"></span>Search Console</button>
+      <div class="h-px bg-white/[0.05] my-2"></div>
+      <button onclick="goTo('configuracion')" class="nav-item" data-page="configuracion"><span class="iconify" data-icon="lucide:settings-2" data-width="15"></span>Configuración</button>
+      <button onclick="goTo('usuarios')" class="nav-item" data-page="usuarios"><span class="iconify" data-icon="lucide:shield-check" data-width="15"></span>Usuarios</button>
+      <div class="h-px bg-white/[0.05] my-2"></div>
+      <button onclick="goTo('soporte')" class="nav-item" data-page="soporte"><span class="iconify" data-icon="lucide:life-buoy" data-width="15"></span>Soporte técnico</button>
+    </nav>
+    <div class="p-4 border-t border-white/[0.06]">
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-8 h-8 rounded-full border border-red-500/20 flex items-center justify-center flex-shrink-0 overflow-hidden"><img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/v1781194456/angelprofile-body_zcojhu.webp" alt="Administrador" class="w-full h-full object-cover"></div>
+        <div class="min-w-0"><p class="text-xs font-medium text-white truncate" id="currentUserLabel">admin</p><p class="text-[10px] text-slate-600">Administrador</p></div>
+      </div>
+      <button onclick="doLogout()" class="btn btn-sm w-full justify-start" style="background:rgba(220,38,38,.12);border:1px solid rgba(220,38,38,.35);color:#f87171"><span class="iconify" data-icon="lucide:log-out" data-width="13"></span>Cerrar sesión</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <!-- Top bar móvil -->
+    <div class="md:hidden flex items-center justify-between mb-6">
+      <button onclick="document.getElementById('sidebar').classList.toggle('open')" class="btn btn-ghost"><span class="iconify" data-icon="lucide:menu" data-width="20"></span></button>
+      <span class="text-sm font-semibold" id="pageTitle">Dashboard</span>
+      <div></div>
+    </div>
+    <!-- Header: fecha/hora + botón para volver al sitio -->
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+      <div class="flex items-center gap-2 text-slate-400" id="adminClock">
+        <span class="iconify text-red-500" data-icon="lucide:calendar-clock" data-width="15"></span>
+        <span id="adminClockDate" class="text-xs capitalize">—</span>
+        <span class="text-slate-600">·</span>
+        <span id="adminClockTime" class="text-xs font-mono">—</span>
+      </div>
+      <a href="index.html" class="btn btn-outline"><span class="iconify" data-icon="lucide:arrow-left" data-width="14"></span> Volver al sitio</a>
+    </div>
+
+    <!-- ========== DASHBOARD ========== -->
+    <div id="page-dashboard" class="section-page active">
+      <div class="flex items-center justify-between mb-8">
+        <div><h1 class="text-xl font-bold text-white">Dashboard</h1><p class="text-sm text-slate-500 mt-0.5">Resumen de actividad del sitio</p></div>
+        <span class="badge badge-green"><span class="iconify" data-icon="lucide:activity" data-width="10"></span>En línea</span>
+      </div>
+      <!-- KPIs -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8" id="kpiGrid"></div>
+      <!-- Search Console Dashboard -->
+      <div class="card mb-6" style="border-color:rgba(59,130,246,.15)">
+        <!-- No conectado -->
+        <div id="gscDashNotConnected" class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(59,130,246,.1)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-white">Google Search Console</p>
+              <p class="text-xs text-slate-500">Conecta para ver clicks, impresiones y posición real</p>
+            </div>
+          </div>
+          <button onclick="gscConnect();gscConnectFromDash=true" class="btn btn-outline btn-sm" style="color:#60a5fa;border-color:rgba(59,130,246,.3)"><span class="iconify" data-icon="lucide:log-in" data-width="13"></span>Conectar</button>
+        </div>
+        <!-- Cargando -->
+        <div id="gscDashLoading" class="hidden text-center py-1">
+          <p class="text-xs text-slate-500">Cargando datos de Search Console...</p>
+        </div>
+        <!-- Datos -->
+        <div id="gscDashData" class="hidden">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <p class="text-sm font-semibold text-white">Google Search Console</p>
+              <p class="text-xs text-slate-500">Últimos 28 días · angeltechsolutions.dev</p>
+            </div>
+            <button onclick="goTo('searchconsole')" class="btn btn-ghost btn-sm" style="color:#60a5fa;font-size:11px">Ver detalle →</button>
+          </div>
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3" id="gscDashKpis"></div>
+        </div>
+      </div>
+      <!-- Gráficas fila 1 -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
+        <!-- Barra: Servicios solicitados -->
+        <div class="lg:col-span-2 card">
+          <p class="text-sm font-semibold text-white mb-1">Solicitudes por servicio</p>
+          <p class="text-xs text-slate-500 mb-4">Distribución de solicitudes recibidas</p>
+          <div style="height:200px"><canvas id="chartBar"></canvas></div>
+        </div>
+        <!-- Dona: Estado reseñas -->
+        <div class="card flex flex-col">
+          <p class="text-sm font-semibold text-white mb-1">Estado de reseñas</p>
+          <p class="text-xs text-slate-500 mb-4">Aprobadas / Pendientes / Rechazadas</p>
+          <div class="flex-1 flex items-center justify-center">
+            <div style="position:relative;width:160px;height:160px">
+              <canvas id="chartDona"></canvas>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column">
+                <span class="text-xl font-bold text-white" id="donaTotal">0</span>
+                <span class="text-[10px] text-slate-500">Reseñas</span>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-around mt-4">
+            <div class="text-center"><div class="text-sm font-bold text-emerald-400" id="donaAprobadas">0</div><div class="text-[10px] text-slate-500">Aprobadas</div></div>
+            <div class="text-center"><div class="text-sm font-bold text-amber-400" id="donaPendientes">0</div><div class="text-[10px] text-slate-500">Pendientes</div></div>
+            <div class="text-center"><div class="text-sm font-bold text-red-400" id="donaRechazadas">0</div><div class="text-[10px] text-slate-500">Rechazadas</div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Gastos por categoría -->
+      <div class="grid grid-cols-1 gap-5">
+        <div class="card" style="max-width:32rem">
+          <p class="text-sm font-semibold text-white mb-1">Gastos por categoría</p>
+          <p class="text-xs text-slate-500 mb-4">Distribución de egresos registrados</p>
+          <div style="height:160px"><canvas id="chartPie"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== SOLICITUDES ========== -->
+    <div id="page-solicitudes" class="section-page">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div><h1 class="text-xl font-bold text-white">Solicitudes</h1><p class="text-sm text-slate-500 mt-0.5">Formularios enviados desde el sitio</p></div>
+        <div class="flex gap-2">
+          <select id="solicitudFilter" onchange="renderSolicitudes()" class="input" style="width:auto;padding:.5rem .875rem;font-size:.75rem">
+            <option value="">Todas</option>
+            <option value="pendiente">Pendientes</option>
+            <option value="en_proceso">En proceso</option>
+            <option value="completada">Completadas</option>
+            <option value="rechazada">Rechazadas</option>
+          </select>
+          <button onclick="clearMessages()" class="btn btn-outline btn-sm"><span class="iconify" data-icon="lucide:trash-2" data-width="13"></span>Limpiar</button>
+        </div>
+      </div>
+      <div id="solicitudesList" class="space-y-3"></div>
+    </div>
+
+    <!-- ========== RESEÑAS ========== -->
+    <div id="page-resenas" class="section-page">
+      <div class="flex items-center justify-between mb-6">
+        <div><h1 class="text-xl font-bold text-white">Reseñas</h1><p class="text-sm text-slate-500 mt-0.5">Moderar reseñas enviadas por usuarios</p></div>
+        <div class="flex gap-2">
+          <button type="button" onclick="copyReviewLink()" class="btn btn-outline btn-sm"><span class="iconify" data-icon="lucide:link" data-width="14"></span>Copiar enlace para reseñas</button>
+          <select id="resenaFilter" onchange="renderResenas()" class="input" style="width:auto;padding:.5rem .875rem;font-size:.75rem">
+            <option value="">Todas</option>
+            <option value="pendiente">Pendientes</option>
+            <option value="aprobada">Aprobadas</option>
+            <option value="rechazada">Rechazadas</option>
+          </select>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 mb-4">Comparte ese enlace por WhatsApp, email o mensaje de texto con cualquier cliente para que deje su testimonio en una página dedicada, sin tener que entrar al sitio principal.</p>
+      <div id="resenasList" class="space-y-3"></div>
+    </div>
+
+    <!-- ========== PRODUCTOS ========== -->
+    <div id="page-productos" class="section-page">
+      <div class="flex items-center justify-between mb-6">
+        <div><h1 class="text-xl font-bold text-white">Productos</h1><p class="text-sm text-slate-500 mt-0.5">Catálogo de productos disponibles</p></div>
+        <button onclick="openProdModal()" class="btn btn-primary btn-sm"><span class="iconify" data-icon="lucide:plus" data-width="14"></span>Agregar</button>
+      </div>
+      <div id="productosList" class="space-y-2"></div>
+    </div>
+
+    <!-- ========== DISPOSITIVOS EN VENTA ========== -->
+    <div id="page-dispositivos" class="section-page">
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <div><h1 class="text-xl font-bold text-white">Dispositivos en Venta</h1><p class="text-sm text-slate-500 mt-0.5">Solicitudes de usuarios que quieren vender su dispositivo</p></div>
+        <select id="dispositivoFilter" onchange="paintDispositivos()" class="input" style="width:auto;padding:.5rem .875rem;font-size:.75rem">
+          <option value="">Todos</option>
+          <option value="pending">Pendientes</option>
+          <option value="approved">Aprobados</option>
+          <option value="rejected">Rechazados</option>
+        </select>
+      </div>
+      <div id="dispositivosList" class="space-y-3"></div>
+    </div>
+
+    <!-- ========== COLABORADORES ========== -->
+    <div id="page-colaboradores" class="section-page">
+      <div class="flex items-center justify-between mb-6">
+        <div><h1 class="text-xl font-bold text-white">Colaboradores</h1><p class="text-sm text-slate-500 mt-0.5">Partners y plataformas</p></div>
+        <button onclick="openPartModal()" class="btn btn-primary btn-sm"><span class="iconify" data-icon="lucide:plus" data-width="14"></span>Agregar</button>
+      </div>
+      <div id="colaboradoresList" class="space-y-2"></div>
+    </div>
+
+    <!-- ========== GASTOS ========== -->
+    <div id="page-gastos" class="section-page">
+      <div class="flex items-center justify-between mb-6">
+        <div><h1 class="text-xl font-bold text-white">Gastos</h1><p class="text-sm text-slate-500 mt-0.5">Control de egresos</p></div>
+        <button onclick="openGastoModal()" class="btn btn-primary btn-sm"><span class="iconify" data-icon="lucide:plus" data-width="14"></span>Registrar</button>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6" id="gastosSummary"></div>
+      <div id="gastosList" class="space-y-2"></div>
+    </div>
+
+    <!-- ========== CONFIGURACIÓN ========== -->
+    <div id="page-configuracion" class="section-page">
+      <div class="mb-6"><h1 class="text-xl font-bold text-white">Configuración del sitio</h1><p class="text-sm text-slate-500 mt-0.5">Edita títulos y textos por sección</p></div>
+      <div id="configSections"></div>
+      <button onclick="saveConfig()" class="btn btn-primary mt-4"><span class="iconify" data-icon="lucide:save" data-width="14"></span>Guardar cambios</button>
+      <p id="configSaved" class="hidden text-xs text-emerald-400 mt-3 flex items-center gap-1"><span class="iconify" data-icon="lucide:check-circle" data-width="13"></span>Cambios guardados correctamente.</p>
+      
+      <!-- HORARIOS (ADMIN ONLY) -->
+      <div class="card mt-6">
+        <h3 class="text-sm font-semibold text-white mb-2">Horario de atención</h3>
+        <p class="text-xs text-slate-500 mb-3">Configura los días y el horario. El sitio mostrará el estado en tiempo real (Abierto / Cerrando pronto / Cerrado).</p>
+        <div class="grid grid-cols-1 gap-3">
+          <div>
+            <label class="block text-xs text-slate-500 mb-2 uppercase tracking-wider">Días de la semana</label>
+            <div class="flex flex-wrap gap-2" id="schedDaysWrap">
+              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300"><input type="checkbox" class="sched-day accent-red-500" value="1"> Lun</label>
+              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300"><input type="checkbox" class="sched-day accent-red-500" value="2"> Mar</label>
+              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300"><input type="checkbox" class="sched-day accent-red-500" value="3"> Mié</label>
+              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300"><input type="checkbox" class="sched-day accent-red-500" value="4"> Jue</label>
+              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300"><input type="checkbox" class="sched-day accent-red-500" value="5"> Vie</label>
+              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300"><input type="checkbox" class="sched-day accent-red-500" value="6"> Sáb</label>
+              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-slate-300"><input type="checkbox" class="sched-day accent-red-500" value="0"> Dom</label>
+            </div>
+            <input id="adminScheduleDays" class="input mt-2" placeholder="Ej: Lunes a Viernes (texto descriptivo)" />
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Hora inicio</label>
+              <input id="adminScheduleStart" class="input" type="time" />
+            </div>
+            <div>
+              <label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Hora fin</label>
+              <input id="adminScheduleEnd" class="input" type="time" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Minutos antes de cerrar para avisar</label>
+            <input id="adminScheduleWarn" class="input" type="number" min="5" max="120" value="30" placeholder="30" style="width:120px"/>
+            <span class="text-xs text-slate-600 ml-2">minutos</span>
+          </div>
+        </div>
+        <div class="flex gap-2 mt-3">
+          <button id="saveScheduleBtn" class="btn btn-primary">Guardar horario</button>
+          <button id="clearScheduleBtn" class="btn btn-outline">Borrar horario</button>
+        </div>
+        <p class="text-xs text-slate-500 mt-3">La configuración se guarda en el navegador y se muestra públicamente en la sección de contacto.</p>
+      </div>
+    </div>
+
+
+
+    <!-- ========== USUARIOS ========== -->
+    <!-- ===== SEARCH CONSOLE ===== -->
+    <div id="page-searchconsole" class="section-page">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="text-xl font-bold text-white">Google Search Console</h1>
+          <p class="text-sm text-slate-500 mt-0.5">Estadísticas reales de búsqueda · angeltechsolutions.dev</p>
+        </div>
+        <div class="flex gap-2">
+          <button id="gscConnectBtn" onclick="gscConnect()" class="btn btn-primary btn-sm"><span class="iconify" data-icon="lucide:log-in" data-width="14"></span>Conectar con Google</button>
+          <button id="gscRefreshBtn" onclick="gscLoad()" class="btn btn-outline btn-sm hidden"><span class="iconify" data-icon="lucide:refresh-cw" data-width="14"></span>Actualizar</button>
+          <button id="gscDisconnectBtn" onclick="gscDisconnect()" class="btn btn-ghost btn-sm hidden" style="color:#475569"><span class="iconify" data-icon="lucide:log-out" data-width="14"></span></button>
+        </div>
+      </div>
+
+      <!-- Estado no conectado -->
+      <div id="gscNotConnected" class="card text-center py-16">
+        <div class="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center" style="background:rgba(59,130,246,.1)">
+          <span class="iconify text-blue-400" data-icon="lucide:bar-chart-2" data-width="28"></span>
+        </div>
+        <p class="text-white font-semibold mb-2">Conecta tu cuenta de Google</p>
+        <p class="text-sm text-slate-500 mb-6">Ve clicks, impresiones, posición y las búsquedas que llevan visitas a tu página</p>
+        <button onclick="gscConnect()" class="btn btn-primary"><span class="iconify" data-icon="lucide:log-in" data-width="15"></span>Conectar con Google Search Console</button>
+      </div>
+
+      <!-- Contenido conectado -->
+      <div id="gscContent" class="hidden">
+        <!-- KPIs -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6" id="gscKpis"></div>
+
+        <!-- Gráfica de clicks -->
+        <div class="card mb-5">
+          <p class="text-sm font-semibold text-white mb-1">Clicks e Impresiones — últimos 28 días</p>
+          <p class="text-xs text-slate-500 mb-4">Cuántas veces apareció tu página y cuántos hicieron clic</p>
+          <div style="height:220px"><canvas id="gscChart"></canvas></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+          <!-- Top búsquedas -->
+          <div class="card">
+            <p class="text-sm font-semibold text-white mb-4">Búsquedas que te encuentran</p>
+            <div id="gscQueries"></div>
+          </div>
+          <!-- Top páginas -->
+          <div class="card">
+            <p class="text-sm font-semibold text-white mb-4">Páginas más vistas en Google</p>
+            <div id="gscPages"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cargando -->
+      <div id="gscLoading" class="card text-center py-12 hidden">
+        <p class="text-slate-500 text-sm">Cargando datos de Search Console...</p>
+      </div>
+
+      <!-- Error -->
+      <div id="gscError" class="card text-center py-10 hidden">
+        <p class="text-red-400 text-sm font-medium mb-2">No se pudieron cargar los datos</p>
+        <p class="text-slate-500 text-xs mb-4" id="gscErrorMsg"></p>
+        <button onclick="gscConnect()" class="btn btn-outline btn-sm">Volver a conectar</button>
+      </div>
+    </div>
+
+    <div id="page-usuarios" class="section-page">
+      <div class="flex items-center justify-between mb-6">
+        <div><h1 class="text-xl font-bold text-white">Usuarios</h1><p class="text-sm text-slate-500 mt-0.5">Gestiona accesos al panel de administración</p></div>
+        <button onclick="openUserModal()" class="btn btn-primary btn-sm"><span class="iconify" data-icon="lucide:user-plus" data-width="14"></span>Nuevo usuario</button>
+      </div>
+      <div id="usuariosList" class="space-y-3"></div>
+    </div>
+
+    <!-- ========== SOPORTE TÉCNICO ========== -->
+    <div id="page-soporte" class="section-page">
+      <div class="mb-6" id="stHeader">
+        <h1 class="text-xl font-bold text-white">Soporte técnico</h1>
+        <p class="text-sm text-slate-500 mt-0.5">Presiona un ícono para entrar</p>
+      </div>
+
+      <div class="st-icons" id="stIcons"></div>
+
+      <div id="stContent" class="hidden">
+        <button type="button" id="stBackBtn" class="btn btn-outline btn-sm mb-5"><span class="iconify" data-icon="lucide:arrow-left" data-width="13"></span>Volver</button>
+        <div class="card" id="stContentBody"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MODALES ========== -->
+
+<!-- Modal Producto -->
+<div id="modalProducto" class="modal-bg">
+  <div class="modal">
+    <div class="flex items-center justify-between mb-5"><h3 class="text-base font-bold text-white" id="modalProdTitle">Nuevo producto</h3><button onclick="closeProdModal()" class="btn-ghost btn btn-sm"><span class="iconify" data-icon="lucide:x" data-width="16"></span></button></div>
+    <div class="space-y-4">
+      <input type="hidden" id="prodId">
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Nombre</label><input id="prodName" class="input" placeholder="Nombre del producto"></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Precio</label><input id="prodPrice" class="input" placeholder="$0.00"></div>
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Condición</label><select id="prodCondition" class="input"><option value="Nuevo">Nuevo</option><option value="Usado">Usado</option></select></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Categoría</label><input id="prodCategory" class="input" placeholder="Apple, Samsung..."></div>
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Icono</label><input id="prodIcon" class="input" placeholder="lucide:smartphone"></div>
+      </div>
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Color del icono</label><select id="prodColor" class="input"><option value="text-slate-300">Blanco</option><option value="text-blue-400">Azul</option><option value="text-violet-400">Violeta</option><option value="text-emerald-400">Verde</option><option value="text-amber-400">Amarillo</option><option value="text-red-400">Rojo</option></select></div>
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Descripción</label><textarea id="prodDesc" class="input" placeholder="Descripción del producto..."></textarea></div>
+      <div class="flex gap-3 pt-2"><button onclick="saveProd()" class="btn btn-primary flex-1 justify-center">Guardar</button><button onclick="closeProdModal()" class="btn btn-outline flex-1 justify-center">Cancelar</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Partner -->
+<div id="modalPartner" class="modal-bg">
+  <div class="modal">
+    <div class="flex items-center justify-between mb-5"><h3 class="text-base font-bold text-white" id="modalPartTitle">Nuevo colaborador</h3><button onclick="closePartModal()" class="btn-ghost btn btn-sm"><span class="iconify" data-icon="lucide:x" data-width="16"></span></button></div>
+    <div class="space-y-4">
+      <input type="hidden" id="partId">
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Nombre</label><input id="partName" class="input" placeholder="Cloudflare..."></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Rol</label><input id="partRole" class="input" placeholder="CDN y Seguridad"></div>
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Icono</label><input id="partIcon" class="input" placeholder="lucide:shield"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Color</label><select id="partColor" class="input"><option value="text-orange-400">Naranja</option><option value="text-white">Blanco</option><option value="text-emerald-400">Verde</option><option value="text-blue-400">Azul</option><option value="text-violet-400">Violeta</option></select></div>
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">URL</label><input id="partUrl" class="input" placeholder="https://..."></div>
+      </div>
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Descripción</label><textarea id="partDesc" class="input" placeholder="Descripción..."></textarea></div>
+      <div class="flex gap-3 pt-2"><button onclick="savePart()" class="btn btn-primary flex-1 justify-center">Guardar</button><button onclick="closePartModal()" class="btn btn-outline flex-1 justify-center">Cancelar</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Gasto -->
+<div id="modalGasto" class="modal-bg">
+  <div class="modal">
+    <div class="flex items-center justify-between mb-5"><h3 class="text-base font-bold text-white" id="modalGastoTitle">Registrar gasto</h3><button onclick="closeGastoModal()" class="btn-ghost btn btn-sm"><span class="iconify" data-icon="lucide:x" data-width="16"></span></button></div>
+    <div class="space-y-4">
+      <input type="hidden" id="gastoId">
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Descripción</label><input id="gastoDesc" class="input" placeholder="Descripción del gasto"></div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Monto ($)</label><input id="gastoMonto" class="input" type="number" placeholder="0.00" step="0.01"></div>
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Categoría</label><select id="gastoCat" class="input"><option value="Hosting">Hosting</option><option value="Dominio">Dominio</option><option value="Herramientas">Herramientas</option><option value="Marketing">Marketing</option><option value="Equipos">Equipos</option><option value="Otros">Otros</option></select></div>
+      </div>
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Fecha</label><input id="gastoFecha" class="input" type="date"></div>
+      <div class="flex gap-3 pt-2"><button onclick="saveGasto()" class="btn btn-primary flex-1 justify-center">Guardar</button><button onclick="closeGastoModal()" class="btn btn-outline flex-1 justify-center">Cancelar</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Usuario -->
+<div id="modalUsuario" class="modal-bg">
+  <div class="modal">
+    <div class="flex items-center justify-between mb-5"><h3 class="text-base font-bold text-white" id="modalUserTitle">Nuevo usuario</h3><button onclick="closeUserModal()" class="btn-ghost btn btn-sm"><span class="iconify" data-icon="lucide:x" data-width="16"></span></button></div>
+    <div class="space-y-4">
+      <input type="hidden" id="userId">
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Usuario</label><input id="userUsername" class="input" placeholder="nombre_usuario"></div>
+        <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Contraseña</label><input id="userPass" class="input" type="password" placeholder="••••••••"></div>
+      </div>
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Nombre completo</label><input id="userFullname" class="input" placeholder="Nombre completo"></div>
+      <div><label class="block text-xs text-slate-500 mb-1.5 uppercase tracking-wider">Rol</label><select id="userRole" class="input"><option value="editor">Editor</option><option value="viewer">Solo lectura</option><option value="admin">Administrador</option></select></div>
+      <div>
+        <label class="block text-xs text-slate-500 mb-2 uppercase tracking-wider">Permisos de acceso</label>
+        <div class="grid grid-cols-2 gap-2" id="permsGrid">
+          <label class="perm-check"><input type="checkbox" name="perm" value="dashboard" checked>Dashboard</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="solicitudes" checked>Solicitudes</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="resenas" checked>Reseñas</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="productos" checked>Productos</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="colaboradores" checked>Colaboradores</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="gastos" checked>Gastos</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="searchconsole" checked>Search Console</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="configuracion">Configuración</label>
+          <label class="perm-check"><input type="checkbox" name="perm" value="usuarios">Usuarios</label>
+        </div>
+      </div>
+      <div class="flex gap-3 pt-2"><button onclick="saveUser()" class="btn btn-primary flex-1 justify-center">Guardar</button><button onclick="closeUserModal()" class="btn btn-outline flex-1 justify-center">Cancelar</button></div>
+    </div>
+  </div>
+</div>
+
+<!-- Contenedor de notificaciones -->
+<div id="adminToastContainer" style="position:fixed;bottom:1.25rem;right:1.25rem;z-index:9999;display:flex;flex-direction:column;gap:.6rem;max-width:min(22rem,calc(100vw - 2rem))"></div>
+
+<script src="supabase.js"></script>
+<script src="/js/admin.js"></script>
+<script src="/js/soporte-tecnico.js"></script>
+</body>
+</html>
+
+

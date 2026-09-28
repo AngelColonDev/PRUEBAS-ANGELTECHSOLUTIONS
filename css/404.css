@@ -1,0 +1,5 @@
+*{font-family:'Inter',sans-serif;box-sizing:border-box}
+body{margin:0;background:#050505;color:#fff;min-height:100vh}
+.gradient-text{background:linear-gradient(to bottom,#fff,rgba(255,255,255,.55));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.5rem;border-radius:9999px;background:#fff;color:#000;text-decoration:none;font-size:.875rem;font-weight:600}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 1.5rem;border-radius:9999px;border:1px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;font-size:.875rem;font-weight:500}

@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /admin-login.html
+Disallow: /dashboard.html
+Disallow: /admin/
+Disallow: /panel/
+Disallow: /blog/
+
+Sitemap: https://angeltechsolutions.dev/sitemap.xml

@@ -1,0 +1,5 @@
+http://angeltechsolutions.dev/* https://angeltechsolutions.dev/:splat 301!
+http://www.angeltechsolutions.dev/* https://angeltechsolutions.dev/:splat 301!
+https://www.angeltechsolutions.dev/* https://angeltechsolutions.dev/:splat 301!
+/blog https://blog.angeltechsolutions.dev/ 301!
+/blog/* https://blog.angeltechsolutions.dev/ 301!

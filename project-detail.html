@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conoce el problema, la soluci&oacute;n, las tecnolog&iacute;as usadas y el resultado final de cada proyecto realizado por Angel Tech Solutions.">
+<meta name="robots" content="noindex, follow">
+<meta name="googlebot" content="noindex, follow">
+<meta property="og:title" content="Proyectos | Angel Tech Solutions">
+<meta property="og:description" content="Detalles profesionales de proyectos web desarrollados por Angel Tech Solutions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://angeltechsolutions.dev/project-detail.html">
+<meta property="og:image" content="https://angeltechsolutions.dev/img/angelprofile-hero.webp">
+<meta property="og:image:alt" content="Portafolio profesional de Angel Tech Solutions">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Proyectos | Angel Tech Solutions">
+<meta name="twitter:description" content="Problema, soluci&oacute;n, tecnolog&iacute;as y resultado final de cada proyecto web.">
+<meta name="twitter:image" content="https://angeltechsolutions.dev/img/angelprofile-hero.webp">
+<meta name="theme-color" content="#EF4444">
+<link rel="canonical" href="https://angeltechsolutions.dev/project-detail.html">
+<link rel="stylesheet" href="/assets/tailwind.css">
+<link rel="stylesheet" href="/css/contact-links.css">
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Portafolio de Proyectos",
+  "url": "https://angeltechsolutions.dev/project-detail.html",
+  "author": {
+    "@type": "Person",
+    "name": "Angel Colon"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Angel Tech Solutions"
+  }
+}
+</script>
+<link rel="stylesheet" href="/css/project-detail.css">
+</head>
+<body>
+<main class="min-h-screen">
+  <section class="px-5 py-20">
+    <div class="max-w-6xl mx-auto">
+      <a href="index.html#proyectos" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition-colors">
+        <span class="iconify" data-icon="lucide:arrow-left" data-width="16" aria-hidden="true"></span>
+        <span>Regresar a proyectos</span>
+      </a>
+
+      <div class="mt-8 grid grid-cols-1 lg:grid-cols-[1.2fr_.8fr] gap-6 items-start">
+        <section class="card p-8 md:p-10">
+          <div class="flex flex-wrap gap-2 mb-5" id="projectTags"></div>
+          <h1 id="projectTitle" class="text-3xl md:text-5xl font-semibold tracking-tight gradient-text">Proyecto</h1>
+          <p id="projectIntro" class="mt-4 text-slate-400 leading-relaxed max-w-3xl"></p>
+
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <article class="card p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                  <span class="iconify text-red-500" data-icon="lucide:triangle-alert" data-width="18" aria-hidden="true"></span>
+                </div>
+                <h2 class="text-lg font-semibold text-white">Problema del cliente</h2>
+              </div>
+              <p id="projectProblem" class="text-sm text-slate-400 leading-relaxed"></p>
+            </article>
+
+            <article class="card p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                  <span class="iconify text-red-500" data-icon="lucide:lightbulb" data-width="18" aria-hidden="true"></span>
+                </div>
+                <h2 class="text-lg font-semibold text-white">Soluci&oacute;n aplicada</h2>
+              </div>
+              <p id="projectSolution" class="text-sm text-slate-400 leading-relaxed"></p>
+            </article>
+          </div>
+
+          <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+            <article class="card p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                  <span class="iconify text-red-500" data-icon="lucide:code-2" data-width="18" aria-hidden="true"></span>
+                </div>
+                <h2 class="text-lg font-semibold text-white">Tecnolog&iacute;as usadas</h2>
+              </div>
+              <ul id="projectTech" class="space-y-2 text-sm text-slate-400"></ul>
+            </article>
+
+            <article class="card p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                  <span class="iconify text-red-500" data-icon="lucide:monitor-check" data-width="18" aria-hidden="true"></span>
+                </div>
+                <h2 class="text-lg font-semibold text-white">Resultado final</h2>
+              </div>
+              <p id="projectResult" class="text-sm text-slate-400 leading-relaxed"></p>
+            </article>
+          </div>
+        </section>
+
+        <aside class="card p-8">
+          <p class="text-xs uppercase tracking-[0.25em] text-red-400">Resumen</p>
+          <div class="mt-5 space-y-5">
+            <div>
+              <p class="text-xs text-slate-500 uppercase tracking-[0.2em] mb-1">Proyecto</p>
+              <p id="summaryTitle" class="text-white font-medium"></p>
+            </div>
+            <div>
+              <p class="text-xs text-slate-500 uppercase tracking-[0.2em] mb-1">Enfoque</p>
+              <p id="summaryFocus" class="text-sm text-slate-400 leading-relaxed"></p>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col gap-3">
+            <a id="visitProjectBtn" href="#" target="_self" rel="noopener" class="btn-red">
+              <span>Ver resultado final</span>
+              <span class="iconify" data-icon="lucide:external-link" data-width="15" aria-hidden="true"></span>
+            </a>
+            <a id="quoteProjectBtn" href="index.html#contacto" class="btn-outline">
+              <span>Solicitar un proyecto similar</span>
+              <span class="iconify" data-icon="lucide:send" data-width="15" aria-hidden="true"></span>
+            </a>
+            <a href="index.html#proyectos" class="btn-outline">
+              <span>Volver al portafolio</span>
+              <span class="iconify" data-icon="lucide:arrow-left" data-width="15" aria-hidden="true"></span>
+            </a>
+          </div>
+
+          <div class="mt-8 pt-8 border-t border-white/[0.08]">
+            <p class="text-xs uppercase tracking-[0.22em] text-slate-500 mb-4">Contacto</p>
+            <div class="space-y-3">
+              <a href="mailto:contacto@angeltechsolutions.dev" data-contact-trigger data-contact-kind="email" data-contact-label="contacto@angeltechsolutions.dev" class="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors">
+                <span class="iconify text-red-500" data-icon="lucide:mail" data-width="15" aria-hidden="true"></span>
+                <span>contacto@angeltechsolutions.dev</span>
+              </a>
+              <a href="mailto:soporte-tecnico@angeltechsolutions.dev" data-contact-trigger data-contact-kind="email" data-contact-label="soporte-tecnico@angeltechsolutions.dev" class="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors">
+                <span class="iconify text-red-500" data-icon="lucide:mail-plus" data-width="15" aria-hidden="true"></span>
+                <span>soporte-tecnico@angeltechsolutions.dev</span>
+              </a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Barranquitas%2C+Puerto+Rico+00794" target="_self" rel="noopener" data-contact-trigger data-contact-kind="location" data-contact-label="Barranquitas, Puerto Rico 00794" class="flex items-center gap-3 text-sm text-slate-400 hover:text-white transition-colors">
+                <span class="iconify text-red-500" data-icon="lucide:map-pin" data-width="15" aria-hidden="true"></span>
+                <span>Barranquitas, Puerto Rico 00794</span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="contactActionModal" class="contact-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="contactActionTitle" aria-describedby="contactActionDescription">
+  <div class="contact-modal-card p-6 md:p-7">
+    <div class="flex items-start justify-between gap-4">
+      <div class="flex items-start gap-4">
+        <div class="contact-modal-icon">
+          <span id="contactActionIcon" class="iconify" data-icon="lucide:mail" data-width="22" aria-hidden="true"></span>
+        </div>
+        <div>
+          <h3 id="contactActionTitle" class="text-lg font-semibold text-white">Contactar por correo</h3>
+          <p id="contactActionDescription" class="mt-2 text-sm text-slate-400 leading-relaxed">Se abrir&aacute; tu aplicaci&oacute;n de correo para escribirle directamente a AngelTech Solutions de forma profesional y r&aacute;pida.</p>
+        </div>
+      </div>
+      <button type="button" class="contact-modal-close" data-contact-close aria-label="Cerrar ventana de contacto">
+        <span class="iconify" data-icon="lucide:x" data-width="16" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="mt-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-3">
+      <p class="text-[11px] uppercase tracking-[0.22em] text-slate-500">Destino</p>
+      <p id="contactActionTarget" class="mt-1 text-sm text-white break-all">contacto@angeltechsolutions.dev</p>
+    </div>
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <button type="button" id="contactActionConfirm" class="contact-modal-primary flex-1">
+        <span>Continuar al correo</span>
+        <span class="iconify" data-icon="lucide:arrow-up-right" data-width="15" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="contact-modal-secondary flex-1" data-contact-close>Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script src="/js/project-detail.js"></script>
+<script src="/js/contact-links.js"></script>
+</body>
+</html>

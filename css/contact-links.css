@@ -1,0 +1,18 @@
+.contact-modal-backdrop{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(2,6,23,.76);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;pointer-events:none;transition:opacity .22s ease}
+.contact-modal-backdrop.open{opacity:1;pointer-events:auto}
+.contact-modal-card{width:min(100%,30rem);border:1px solid rgba(255,255,255,.1);border-radius:1.5rem;background:linear-gradient(180deg,rgba(10,10,10,.96),rgba(5,5,5,.98));box-shadow:0 30px 80px rgba(0,0,0,.45);transform:translateY(10px) scale(.98);transition:transform .22s ease}
+.contact-modal-backdrop.open .contact-modal-card{transform:translateY(0) scale(1)}
+.contact-modal-icon{width:3.25rem;height:3.25rem;border-radius:1rem;display:flex;align-items:center;justify-content:center;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.22);color:#f87171}
+.contact-modal-close{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#94a3b8;border-radius:.85rem;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;transition:all .18s ease}
+.contact-modal-close:hover{color:#fff;border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.06)}
+.contact-modal-primary,.contact-modal-secondary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:3rem;padding:.85rem 1.2rem;border-radius:9999px;font-size:.875rem;font-weight:600;transition:all .18s ease}
+.contact-modal-primary{background:#dc2626;border:1px solid rgba(239,68,68,.45);color:#fff;box-shadow:0 0 22px rgba(220,38,38,.22)}
+.contact-modal-primary:hover{background:#ef4444}
+.contact-modal-secondary{background:transparent;border:1px solid rgba(255,255,255,.1);color:#e2e8f0}
+.contact-modal-secondary:hover{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.18)}
+[data-theme=light] .contact-modal-card{background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(248,250,252,.98));border-color:rgba(15,23,42,.1)}
+[data-theme=light] .contact-modal-close{background:#fff;border-color:rgba(15,23,42,.08);color:#475569}
+[data-theme=light] .contact-modal-close:hover{color:#0f172a;border-color:rgba(15,23,42,.16)}
+[data-theme=light] .contact-modal-secondary{color:#0f172a;border-color:rgba(15,23,42,.1)}
+[data-theme=light] .contact-modal-secondary:hover{background:rgba(15,23,42,.03);border-color:rgba(15,23,42,.16)}
+@media(max-width:640px){.contact-modal-card{border-radius:1.25rem}}

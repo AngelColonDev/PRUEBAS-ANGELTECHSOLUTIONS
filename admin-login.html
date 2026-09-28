@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<link rel="canonical" href="https://angeltechsolutions.dev/admin-login.html">
+<title>AngelDev - Acceso Administrador</title>
+<script src="/js/admin-login-guard.js"></script>
+<link rel="stylesheet" href="/assets/tailwind.css">
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/admin-login.css">
+</head>
+<body>
+  <main style="width:100%;max-width:400px">
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center gap-2 mb-3">
+        <img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/q_auto/f_auto/v1781464069/favicon-32x32_flnhtq.png" alt="AngelDev" width="18" height="18" style="width:18px;height:18px;flex-shrink:0">
+        <span class="text-lg font-bold tracking-tight">Angel<span style="color:#EF4444">Dev</span></span>
+      </div>
+      <p class="text-sm" style="color:#64748b">Acceso al panel de administraci&oacute;n</p>
+    </div>
+
+    <section id="adminLoginCard" class="card">
+      <h1 class="text-base font-semibold mb-5">Iniciar sesi&oacute;n</h1>
+
+      <form id="adminLoginForm" class="space-y-4">
+        <div>
+          <label class="block text-xs mb-1.5 uppercase tracking-wider" style="color:#64748b">Usuario</label>
+          <input id="loginUser" class="input" type="text" placeholder="Usuario" autocomplete="username" required>
+        </div>
+        <div>
+          <label class="block text-xs mb-1.5 uppercase tracking-wider" style="color:#64748b">Contrase&ntilde;a</label>
+          <div style="position:relative">
+            <input id="loginPass" class="input" type="password" placeholder="••••••••" autocomplete="current-password" required style="padding-right:2.6rem">
+            <button type="button" id="togglePassBtn" aria-label="Mostrar contrase&ntilde;a" style="position:absolute;right:.4rem;top:50%;transform:translateY(-50%);background:none;border:none;color:#64748b;cursor:pointer;display:flex;align-items:center;padding:.35rem;border-radius:.5rem">
+              <span class="iconify" id="togglePassIcon" data-icon="lucide:eye" data-width="16"></span>
+            </button>
+          </div>
+        </div>
+        <p id="loginErr" class="hidden text-xs" style="color:#f87171">Usuario o contrase&ntilde;a incorrectos.</p>
+        <p id="loginAttemptsWarn" class="hidden text-xs" style="color:#fbbf24">Te queda 1 intento antes de que se bloquee el acceso.</p>
+        <button id="loginBtn" type="submit" class="btn btn-primary" style="width:100%">Entrar <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span></button>
+        <a href="index.html" rel="nofollow" class="btn btn-outline" style="width:100%"><span class="iconify" data-icon="lucide:arrow-left" data-width="14"></span>Regresar al sitio</a>
+      </form>
+    </section>
+
+    <section id="loginLockedCard" class="card hidden" style="text-align:center">
+      <div style="width:3rem;height:3rem;border-radius:9999px;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 1rem">
+        <span class="iconify" data-icon="lucide:shield-alert" data-width="24" style="color:#f87171"></span>
+      </div>
+      <h1 class="text-base font-semibold mb-2">Acceso bloqueado</h1>
+      <p class="text-sm mb-5" style="color:#94a3b8">Se super&oacute; el n&uacute;mero de intentos permitidos. Por seguridad, este panel qued&oacute; bloqueado.</p>
+      <p class="text-xs mb-4" style="color:#64748b">Comun&iacute;cate con soporte t&eacute;cnico para recuperar el acceso:</p>
+      <a href="mailto:soporte-tecnico@angeltechsolutions.dev" class="btn btn-primary" style="width:100%"><span class="iconify" data-icon="lucide:mail" data-width="14"></span>soporte-tecnico@angeltechsolutions.dev</a>
+    </section>
+  </main>
+
+  <script src="supabase.js"></script>
+  <script src="/js/admin-login.js"></script>
+</body>
+</html>

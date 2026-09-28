@@ -1,0 +1,5 @@
+*{font-family:'Inter',sans-serif;font-feature-settings:"cv02","cv03","cv04","cv11"}
+body{background:#050505;color:#fff}
+.gradient-text{background:linear-gradient(to bottom,#FFFFFF,#FFFFFF,rgba(255,255,255,0.5));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.accent-gradient{background:linear-gradient(135deg,#EF4444,#F87171,#FCA5A5);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.btn{box-shadow:0 0 20px rgba(255,255,255,0.06)}

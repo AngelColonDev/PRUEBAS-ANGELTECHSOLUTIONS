@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Comparte tu experiencia trabajando con Angel Tech Solutions. Tu testimonio ayuda a otros negocios a conocer nuestro trabajo." data-desc-es="Comparte tu experiencia trabajando con Angel Tech Solutions. Tu testimonio ayuda a otros negocios a conocer nuestro trabajo." data-desc-en="Share your experience working with Angel Tech Solutions. Your testimonial helps other businesses learn about our work.">
+<meta name="robots" content="noindex, follow">
+<meta property="og:title" content="Deja tu testimonio | Angel Tech Solutions">
+<meta property="og:description" content="Comparte tu experiencia trabajando con Angel Tech Solutions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://angeltechsolutions.dev/dejar-resena.html">
+<meta property="og:image" content="https://angeltechsolutions.dev/img/angelprofile-hero.webp">
+<meta name="theme-color" content="#EF4444">
+<title data-title-es="Deja tu testimonio | Angel Tech Solutions" data-title-en="Leave your testimonial | Angel Tech Solutions">Deja tu testimonio | Angel Tech Solutions</title>
+<link rel="canonical" href="https://angeltechsolutions.dev/dejar-resena.html">
+<link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/dtw3qx4qq/image/upload/q_auto/f_auto/v1781464068/apple-touch-icon_iw7b0x.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dtw3qx4qq/image/upload/q_auto/f_auto/v1781464069/favicon-32x32_flnhtq.png">
+<link rel="stylesheet" href="/assets/tailwind.css">
+<link rel="stylesheet" href="/css/contact-links.css">
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body class="antialiased">
+
+<header class="px-5 pt-8">
+  <div class="max-w-3xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2" aria-label="AngelDev — inicio">
+      <img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/q_auto/f_auto/v1781464069/favicon-32x32_flnhtq.png" alt="AngelDev" width="18" height="18" class="w-[18px] h-[18px]">
+      <span class="text-sm font-semibold tracking-tight">Angel<span class="text-red-500">Dev</span></span>
+    </a>
+    <div class="flex items-center gap-2">
+      <button onclick="toggleTheme()" data-aria-es="Cambiar tema" data-aria-en="Change theme" aria-label="Cambiar tema" class="p-2 rounded-lg border border-white/[0.08] text-slate-400 hover:text-white hover:border-white/20 transition-all"><span class="iconify theme-icon" data-icon="lucide:moon" data-width="14" aria-hidden="true"></span></button>
+      <button onclick="toggleLang()" data-aria-es="Cambiar idioma" data-aria-en="Change language" aria-label="Cambiar idioma" class="w-8 h-8 flex items-center justify-center rounded-lg border border-white/[0.08] hover:border-white/20 transition-all overflow-hidden"><img src="" alt="" class="lang-flag w-5 h-3.5 rounded-sm object-cover"></button>
+      <a href="index.html" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1.5"><span class="iconify" data-icon="lucide:arrow-left" data-width="13" aria-hidden="true"></span><span data-es="Volver al sitio" data-en="Back to site">Volver al sitio</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="px-5 pt-10 pb-20">
+  <div class="max-w-2xl mx-auto">
+    <div class="text-center mb-10">
+      <div class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mx-auto mb-5"><span class="iconify text-red-500" data-icon="lucide:message-square-heart" data-width="22" aria-hidden="true"></span></div>
+      <span class="text-xs font-mono text-red-500 uppercase tracking-widest" data-es="Testimonios" data-en="Testimonials">Testimonios</span>
+      <h1 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight gradient-text" data-es="Comparte tu experiencia" data-en="Share your experience">Comparte tu experiencia</h1>
+      <p class="mt-4 text-slate-400 font-light" data-es="¿Trabajaste con Angel Tech Solutions? Tu opinión ayuda a otros negocios en Puerto Rico a conocer nuestro trabajo. Toma menos de 2 minutos." data-en="Did you work with Angel Tech Solutions? Your feedback helps other businesses in Puerto Rico learn about our work. It takes less than 2 minutes.">¿Trabajaste con Angel Tech Solutions? Tu opinión ayuda a otros negocios en Puerto Rico a conocer nuestro trabajo. Toma menos de 2 minutos.</p>
+    </div>
+
+    <div class="card p-6 md:p-8">
+      <form id="resenaForm" class="space-y-4" novalidate>
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 flex flex-col items-center gap-1">
+            <div id="reviewPhotoZone" class="file-upload-area" style="position:relative;cursor:pointer;width:76px;height:76px;border-radius:50%;padding:0;display:flex;align-items:center;justify-content:center;overflow:hidden">
+              <input type="file" id="reviewPhotoFile" accept="image/*" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:2;border-radius:50%">
+              <div id="reviewPhotoPlaceholder" class="flex flex-col items-center gap-0.5 pointer-events-none">
+                <span class="iconify text-slate-500" data-icon="lucide:user-circle" data-width="30"></span>
+                <p class="text-[9px] text-slate-600 text-center leading-tight" data-es="Subir<br>foto" data-en="Upload<br>photo">Subir<br>foto</p>
+              </div>
+              <div id="reviewPhotoPreview" class="hidden" style="position:absolute;inset:0;border-radius:50%">
+                <img id="reviewPhotoImg" src="" alt="Vista previa de la foto de perfil de la reseña" style="width:100%;height:100%;object-fit:cover;border-radius:50%">
+                <button type="button" id="reviewPhotoRemoveBtn" class="pointer-events-auto" style="position:absolute;top:2px;right:2px;width:18px;height:18px;border-radius:50%;background:rgba(0,0,0,.8);color:#f87171;font-size:10px;display:flex;align-items:center;justify-content:center;z-index:3" data-aria-es="Quitar" data-aria-en="Remove" aria-label="Quitar" title="Quitar">✕</button>
+              </div>
+            </div>
+            <p class="text-[9px] text-slate-600" data-es="Foto (opcional)" data-en="Photo (optional)">Foto (opcional)</p>
+          </div>
+          <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="reviewName" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider"><span data-es="Nombre completo" data-en="Full name">Nombre completo</span> <span class="text-red-500">*</span></label>
+              <input type="text" id="reviewName" required maxlength="60" placeholder="Tu nombre" data-ph-es="Tu nombre" data-ph-en="Your name" autocomplete="name" class="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.1] rounded-xl text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all">
+            </div>
+            <div>
+              <label for="reviewRole" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider" data-es="Ocupación / Negocio" data-en="Occupation / Business">Ocupación / Negocio</label>
+              <input type="text" id="reviewRole" maxlength="60" placeholder="Ej: Dueño de negocio" data-ph-es="Ej: Dueño de negocio" data-ph-en="E.g.: Business owner" class="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.1] rounded-xl text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="reviewMunicipio" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider"><span data-es="Municipio" data-en="Municipality">Municipio</span> <span class="text-red-500">*</span></label>
+            <select id="reviewMunicipio" required class="w-full px-4 py-3 bg-[#0A0A0A] border border-white/[0.1] rounded-xl text-sm text-slate-400 focus:outline-none focus:border-red-500/50 transition-all">
+              <option value="" data-es="Selecciona tu municipio" data-en="Select your municipality">Selecciona tu municipio</option>
+              <option>Adjuntas</option><option>Aguada</option><option>Aguadilla</option><option>Aguas Buenas</option><option>Aibonito</option><option>Añasco</option><option>Arecibo</option><option>Arroyo</option><option>Barceloneta</option><option>Barranquitas</option><option>Bayamón</option><option>Cabo Rojo</option><option>Caguas</option><option>Camuy</option><option>Canóvanas</option><option>Carolina</option><option>Cataño</option><option>Cayey</option><option>Ceiba</option><option>Ciales</option><option>Cidra</option><option>Coamo</option><option>Comerío</option><option>Corozal</option><option>Culebra</option><option>Dorado</option><option>Fajardo</option><option>Florida</option><option>Guánica</option><option>Guayama</option><option>Guayanilla</option><option>Guaynabo</option><option>Gurabo</option><option>Hatillo</option><option>Hormigueros</option><option>Humacao</option><option>Isabela</option><option>Jayuya</option><option>Juana Díaz</option><option>Juncos</option><option>Lajas</option><option>Lares</option><option>Las Marías</option><option>Las Piedras</option><option>Loíza</option><option>Luquillo</option><option>Manatí</option><option>Maricao</option><option>Maunabo</option><option>Mayagüez</option><option>Moca</option><option>Morovis</option><option>Naguabo</option><option>Naranjito</option><option>Orocovis</option><option>Patillas</option><option>Peñuelas</option><option>Ponce</option><option>Quebradillas</option><option>Rincón</option><option>Río Grande</option><option>Sabana Grande</option><option>Salinas</option><option>San Germán</option><option>San Juan</option><option>San Lorenzo</option><option>San Sebastián</option><option>Santa Isabel</option><option>Toa Alta</option><option>Toa Baja</option><option>Trujillo Alto</option><option>Utuado</option><option>Vega Alta</option><option>Vega Baja</option><option>Vieques</option><option>Villalba</option><option>Yabucoa</option><option>Yauco</option>
+              <option data-es="Fuera de Puerto Rico" data-en="Outside Puerto Rico">Fuera de Puerto Rico</option>
+            </select>
+          </div>
+          <div>
+            <label for="reviewServicio" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider"><span data-es="Servicio recibido" data-en="Service received">Servicio recibido</span> <span class="text-red-500">*</span></label>
+            <select id="reviewServicio" required class="w-full px-4 py-3 bg-[#0A0A0A] border border-white/[0.1] rounded-xl text-sm text-slate-400 focus:outline-none focus:border-red-500/50 transition-all">
+              <option value="" data-es="Selecciona el servicio" data-en="Select the service">Selecciona el servicio</option>
+              <option value="Diseño Web" data-es="Diseño Web" data-en="Web Design">Diseño Web</option>
+              <option value="Programación Frontend" data-es="Programación Frontend" data-en="Frontend Development">Programación Frontend</option>
+              <option value="Agente IA / Chatbot" data-es="Agente IA / Chatbot" data-en="AI Agent / Chatbot">Agente IA / Chatbot</option>
+              <option value="Programación personalizada" data-es="Programación personalizada" data-en="Custom programming">Programación personalizada</option>
+              <option value="Servicio técnico" data-es="Servicio técnico" data-en="Technical service">Servicio técnico</option>
+              <option value="Creación de código QR" data-es="Creación de código QR" data-en="QR code creation">Creación de código QR</option>
+              <option value="Mantenimiento web" data-es="Mantenimiento web" data-en="Web maintenance">Mantenimiento web</option>
+              <option value="Servicio personalizado" data-es="Servicio personalizado" data-en="Personalized service">Servicio personalizado</option>
+              <option value="Compra de producto" data-es="Compra de producto" data-en="Product purchase">Compra de producto</option>
+              <option value="Otro" data-es="Otro" data-en="Other">Otro</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider" data-es="Calificación" data-en="Rating">Calificación</label>
+          <div class="star-rating" role="radiogroup" data-aria-es="Calificación de 1 a 5 estrellas" data-aria-en="Rating from 1 to 5 stars" aria-label="Calificación de 1 a 5 estrellas">
+            <input type="radio" id="star5" name="rating" value="5" checked><label for="star5" data-aria-es="5 estrellas" data-aria-en="5 stars" title="5 estrellas" aria-label="5 estrellas">★</label>
+            <input type="radio" id="star4" name="rating" value="4"><label for="star4" data-aria-es="4 estrellas" data-aria-en="4 stars" title="4 estrellas" aria-label="4 estrellas">★</label>
+            <input type="radio" id="star3" name="rating" value="3"><label for="star3" data-aria-es="3 estrellas" data-aria-en="3 stars" title="3 estrellas" aria-label="3 estrellas">★</label>
+            <input type="radio" id="star2" name="rating" value="2"><label for="star2" data-aria-es="2 estrellas" data-aria-en="2 stars" title="2 estrellas" aria-label="2 estrellas">★</label>
+            <input type="radio" id="star1" name="rating" value="1"><label for="star1" data-aria-es="1 estrella" data-aria-en="1 star" title="1 estrella" aria-label="1 estrella">★</label>
+          </div>
+        </div>
+
+        <div>
+          <label for="reviewText" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider"><span data-es="Tu testimonio" data-en="Your testimonial">Tu testimonio</span> <span class="text-red-500">*</span></label>
+          <textarea id="reviewText" rows="4" required maxlength="400" placeholder="Cuéntanos cómo fue tu experiencia trabajando con Angel..." data-ph-es="Cuéntanos cómo fue tu experiencia trabajando con Angel..." data-ph-en="Tell us about your experience working with Angel..." class="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.1] rounded-xl text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all resize-none"></textarea>
+          <p class="text-[10px] text-slate-500 mt-1 text-right"><span id="reviewCharCount">0</span>/400</p>
+        </div>
+
+        <details class="group rounded-xl border border-red-500/25 bg-red-500/[0.06] hover:border-red-500/45 hover:bg-red-500/[0.09] transition-colors">
+          <summary class="cursor-pointer flex items-center justify-between gap-2 px-4 py-3 text-sm font-semibold text-white select-none list-none">
+            <span class="flex items-center gap-2">
+              <span class="iconify text-red-500" data-icon="lucide:link" data-width="16" aria-hidden="true"></span>
+              <span><span data-es="Información adicional" data-en="Additional information">Información adicional</span> <span class="text-slate-400 font-normal normal-case text-xs">(Instagram, LinkedIn, sitio web...)</span></span>
+            </span>
+            <span class="iconify text-red-500 group-open:rotate-180 transition-transform flex-shrink-0" data-icon="lucide:chevron-down" data-width="16" aria-hidden="true"></span>
+          </summary>
+          <div class="px-4 pb-4 pt-1 space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="reviewYears" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider"><span data-es="Años de experiencia" data-en="Years of experience">Años de experiencia</span> <span class="text-slate-600 normal-case text-[10px]" data-es="(opcional)" data-en="(optional)">(opcional)</span></label>
+                <input type="number" id="reviewYears" min="0" max="99" placeholder="Ej: 5" data-ph-es="Ej: 5" data-ph-en="E.g.: 5" class="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.1] rounded-xl text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all">
+              </div>
+              <div>
+                <label for="reviewWebsite" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider"><span data-es="Sitio web" data-en="Website">Sitio web</span> <span class="text-slate-600 normal-case text-[10px]" data-es="(opcional)" data-en="(optional)">(opcional)</span></label>
+                <input type="url" id="reviewWebsite" maxlength="200" placeholder="https://tuempresa.com" data-ph-es="https://tuempresa.com" data-ph-en="https://yourcompany.com" class="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.1] rounded-xl text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all">
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="reviewInstagram" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider">Instagram <span class="text-slate-600 normal-case text-[10px]" data-es="(opcional)" data-en="(optional)">(opcional)</span></label>
+                <div class="relative">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-600 text-sm">@</span>
+                  <input type="text" id="reviewInstagram" maxlength="60" placeholder="tu_usuario" data-ph-es="tu_usuario" data-ph-en="your_username" class="w-full pl-7 pr-4 py-3 bg-white/[0.03] border border-white/[0.1] rounded-xl text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all">
+                </div>
+              </div>
+              <div>
+                <label for="reviewLinkedin" class="block text-xs font-medium text-slate-500 mb-2 uppercase tracking-wider">LinkedIn <span class="text-slate-600 normal-case text-[10px]" data-es="(opcional)" data-en="(optional)">(opcional)</span></label>
+                <input type="text" id="reviewLinkedin" maxlength="100" placeholder="linkedin.com/in/tu-perfil" data-ph-es="linkedin.com/in/tu-perfil" data-ph-en="linkedin.com/in/your-profile" class="w-full px-4 py-3 bg-white/[0.03] border border-white/[0.1] rounded-xl text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-red-500/50 focus:bg-white/[0.05] transition-all">
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <div class="p-4 rounded-xl border border-white/[0.1] bg-white/[0.02]">
+          <p class="text-xs font-medium text-white mb-3"><span data-es="¿Autorizas publicar tu testimonio en el sitio web?" data-en="Do you authorize publishing your testimonial on the website?">¿Autorizas publicar tu testimonio en el sitio web?</span> <span class="text-red-500">*</span></p>
+          <div class="flex gap-4">
+            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="radio" name="reviewAutoriza" value="si" required class="accent-red-500" checked> <span data-es="Sí, autorizo" data-en="Yes, I authorize">Sí, autorizo</span></label>
+            <label class="flex items-center gap-2 text-sm text-slate-300 cursor-pointer"><input type="radio" name="reviewAutoriza" value="no" required class="accent-red-500"> <span data-es="No autorizo" data-en="I do not authorize">No autorizo</span></label>
+          </div>
+          <p class="mt-2 text-[10px] text-slate-500" data-es="Si no autorizas, tu testimonio se recibe igual para uso interno pero no se publicará en el sitio." data-en="If you do not authorize it, your testimonial is still received for internal use but will not be published on the site.">Si no autorizas, tu testimonio se recibe igual para uso interno pero no se publicará en el sitio.</p>
+        </div>
+
+        <div id="hcaptchaContainer">
+          <div class="h-captcha" data-sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2" data-theme="dark" data-callback="onHcaptchaVerified"></div>
+          <p class="text-[10px] text-slate-600 mt-1.5 flex items-center gap-1"><span class="iconify" data-icon="lucide:shield-check" data-width="10" aria-hidden="true"></span> <span data-es="Verificación anti-spam protegida por hCaptcha" data-en="Anti-spam verification protected by hCaptcha">Verificación anti-spam protegida por hCaptcha</span></p>
+          <p id="hcaptchaError" role="alert" class="hidden mt-2 text-xs text-red-400 flex items-center gap-1.5"><span class="iconify" data-icon="lucide:triangle-alert" data-width="12" aria-hidden="true"></span> <span data-es="Debes completar la verificación para poder enviar el formulario." data-en="You must complete the verification before submitting the form.">Debes completar la verificación para poder enviar el formulario.</span></p>
+        </div>
+
+        <button type="submit" class="btn-red w-full justify-center"><span class="iconify" data-icon="lucide:send" data-width="14" aria-hidden="true"></span><span data-es="Enviar testimonio" data-en="Submit testimonial">Enviar testimonio</span></button>
+        <p id="reviewSuccess" role="alert" class="hidden text-center text-sm text-emerald-400 flex items-center justify-center gap-2"><span class="iconify" data-icon="lucide:check-circle" data-width="15" aria-hidden="true"></span><span data-es="¡Gracias! Tu testimonio fue recibido y está en revisión." data-en="Thank you! Your testimonial was received and is under review.">¡Gracias! Tu testimonio fue recibido y está en revisión.</span></p>
+        <p id="reviewError" role="alert" class="hidden text-center text-sm text-red-400"></p>
+      </form>
+    </div>
+
+    <p class="text-center text-xs text-slate-600 mt-6"><span data-es='Al enviar este formulario aceptas nuestra <a href="politica-privacidad.html?from=dejar-resena.html" class="text-slate-400 hover:text-white underline underline-offset-2">Política de Privacidad</a>.' data-en='By submitting this form you accept our <a href="politica-privacidad.html?from=dejar-resena.html" class="text-slate-400 hover:text-white underline underline-offset-2">Privacy Policy</a>.'>Al enviar este formulario aceptas nuestra <a href="politica-privacidad.html?from=dejar-resena.html" class="text-slate-400 hover:text-white underline underline-offset-2">Política de Privacidad</a>.</span></p>
+  </div>
+</main>
+
+<footer class="pt-10 pb-8 px-5 border-t border-white/[0.06] bg-[#050505]">
+  <div class="max-w-2xl mx-auto text-center">
+    <p class="text-[10px] text-slate-500 uppercase tracking-widest" data-es="© 2026 AngelDev. Todos los derechos reservados." data-en="© 2026 AngelDev. All rights reserved.">© 2026 AngelDev. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ===== ACCESIBILIDAD ===== -->
+<div id="a11yWidget" class="a11y-widget">
+  <button type="button" id="a11yToggleBtn" data-aria-es="Herramientas de accesibilidad" data-aria-en="Accessibility tools" aria-label="Herramientas de accesibilidad" aria-expanded="false" aria-controls="a11yPanel" class="a11y-btn"><span class="iconify" data-icon="lucide:accessibility" data-width="22" aria-hidden="true"></span></button>
+  <div id="a11yPanel" class="a11y-panel hidden" role="dialog" data-aria-es="Herramientas de accesibilidad" data-aria-en="Accessibility tools" aria-label="Herramientas de accesibilidad">
+    <div class="a11y-panel-header">
+      <p class="a11y-panel-title" data-es="Accesibilidad" data-en="Accessibility">Accesibilidad</p>
+      <button type="button" id="a11yCloseBtn" data-aria-es="Cerrar" data-aria-en="Close" aria-label="Cerrar" class="a11y-close"><span class="iconify" data-icon="lucide:x" data-width="15" aria-hidden="true"></span></button>
+    </div>
+    <div class="a11y-options">
+      <button type="button" class="a11y-option" data-a11y="text-up"><span class="iconify" data-icon="lucide:zoom-in" data-width="15" aria-hidden="true"></span><span data-es="Aumentar texto" data-en="Increase text">Aumentar texto</span></button>
+      <button type="button" class="a11y-option" data-a11y="text-down"><span class="iconify" data-icon="lucide:zoom-out" data-width="15" aria-hidden="true"></span><span data-es="Reducir texto" data-en="Decrease text">Reducir texto</span></button>
+      <button type="button" class="a11y-option" data-a11y="contrast"><span class="iconify" data-icon="lucide:contrast" data-width="15" aria-hidden="true"></span><span data-es="Alto contraste" data-en="High contrast">Alto contraste</span></button>
+      <button type="button" class="a11y-option" data-a11y="grayscale"><span class="iconify" data-icon="lucide:droplet" data-width="15" aria-hidden="true"></span><span data-es="Escala de grises" data-en="Grayscale">Escala de grises</span></button>
+      <button type="button" class="a11y-option" data-a11y="underline"><span class="iconify" data-icon="lucide:underline" data-width="15" aria-hidden="true"></span><span data-es="Subrayar enlaces" data-en="Underline links">Subrayar enlaces</span></button>
+      <button type="button" class="a11y-option" data-a11y="readable"><span class="iconify" data-icon="lucide:type" data-width="15" aria-hidden="true"></span><span data-es="Fuente legible" data-en="Readable font">Fuente legible</span></button>
+      <button type="button" class="a11y-option a11y-reset" data-a11y="reset"><span class="iconify" data-icon="lucide:rotate-ccw" data-width="15" aria-hidden="true"></span><span data-es="Restablecer" data-en="Reset">Restablecer</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LANGUAGE WELCOME MODAL ===== -->
+<div id="welcomeModal" class="contact-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="welcomeModalTitle">
+  <div class="contact-modal-card relative p-6 md:p-7 text-center">
+    <button type="button" id="welcomeModalClose" data-aria-es="Cerrar" data-aria-en="Close" aria-label="Cerrar" class="contact-modal-close absolute top-4 right-4"><span class="iconify" data-icon="lucide:x" data-width="16" aria-hidden="true"></span></button>
+    <img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/q_auto/f_auto/v1781464069/favicon-32x32_flnhtq.png" alt="" width="36" height="36" class="mx-auto mb-4 rounded-lg">
+    <h3 id="welcomeModalTitle" class="text-lg font-semibold text-white">Elige tu idioma / Choose your language</h3>
+    <p class="mt-2 text-sm text-slate-400" data-es="Selecciona cómo prefieres dejar tu reseña." data-en="Select how you'd like to leave your review.">Selecciona cómo prefieres dejar tu reseña.</p>
+    <div class="mt-5 grid grid-cols-2 gap-3">
+      <button type="button" id="welcomeLangEs" class="flex flex-col items-center gap-2 p-4 rounded-2xl border border-white/10 hover:border-red-500/50 hover:bg-white/[0.03] transition-all">
+        <img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/v1790536222/Flag_of_Puerto_Rico.svg_qz6k34.webp" alt="Español" class="w-10 h-7 rounded object-cover">
+        <span class="text-sm font-medium text-white">Español</span>
+      </button>
+      <button type="button" id="welcomeLangEn" class="flex flex-col items-center gap-2 p-4 rounded-2xl border border-white/10 hover:border-red-500/50 hover:bg-white/[0.03] transition-all">
+        <img src="https://res.cloudinary.com/dtw3qx4qq/image/upload/v1790536295/Flag_of_the_United_States_jib8ej.svg" alt="English" class="w-10 h-7 rounded object-cover">
+        <span class="text-sm font-medium text-white">English</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="supabase.js"></script>
+<script src="/js/lang-sync.js"></script>
+<script src="/js/dejar-resena.js"></script>
+<script src="/js/accessibility.js"></script>
+</body>
+</html>

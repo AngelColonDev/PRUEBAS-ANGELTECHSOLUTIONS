@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gracias por contactar a Angel Tech Solutions. Tu mensaje fue recibido correctamente.">
+    <meta name="robots" content="noindex, follow">
+    <meta property="og:title" content="Gracias por contactar | Angel Tech Solutions">
+    <meta property="og:description" content="Tu mensaje fue enviado correctamente. Te responderemos a la brevedad.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://angeltechsolutions.dev/thank-you.html">
+    <meta property="og:image" content="https://angeltechsolutions.dev/img/angelprofile-hero.webp">
+    <meta property="og:image:alt" content="Retrato profesional de Angel de Angel Tech Solutions">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gracias por contactar | Angel Tech Solutions">
+    <meta name="twitter:description" content="Tu mensaje fue enviado correctamente.">
+    <meta name="twitter:image" content="https://angeltechsolutions.dev/img/angelprofile-hero.webp">
+    <title>Gracias — AngelDev</title>
+    <link rel="canonical" href="https://angeltechsolutions.dev/thank-you.html">
+    <link rel="stylesheet" href="/assets/tailwind.css">
+    <link rel="stylesheet" href="/css/contact-links.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Gracias | Angel Tech Solutions",
+      "url": "https://angeltechsolutions.dev/thank-you.html",
+      "description": "Página de confirmación de envío del formulario de contacto."
+    }
+    </script>
+    <link rel="stylesheet" href="/css/thank-you.css">
+</head>
+<body class="bg-[#050505] antialiased">
+    <header class="pt-8 pb-6">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" target="_self" rel="noopener" class="flex items-center gap-2.5">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><polygon points="10,1 19,18 1,18" fill="white"/></svg>
+                <span class="text-sm font-semibold tracking-tight">Angel<span class="text-red-500">Dev</span></span>
+            </a>
+        </div>
+    </header>
+
+    <main class="min-h-[60vh] flex items-center justify-center px-6">
+        <div class="max-w-3xl mx-auto text-center">
+            <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-white/[0.06] mb-6">
+                <span class="iconify text-emerald-400" data-icon="lucide:check" data-width="48"></span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-semibold gradient-text">Gracias — Mensaje recibido</h1>
+            <p class="mt-4 text-slate-400">Tu mensaje ha sido enviado correctamente. Revisaré los detalles y te responderé a la brevedad.</p>
+
+            <div class="mt-8 flex items-center justify-center gap-4">
+                <a href="index.html" target="_self" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3 bg-white text-black rounded-full btn" id="homeBtn">Volver al inicio</a>
+                <a href="index.html#contacto" target="_self" rel="noopener" id="sendAnother" class="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.06] rounded-full text-sm text-slate-300">Enviar otro mensaje</a>
+            </div>
+
+            <div class="mt-8 space-y-3 text-sm text-slate-400">
+                <p>También puedes contactarme directamente:</p>
+                <div class="flex flex-col items-center gap-2">
+                    <a href="mailto:contacto@angeltechsolutions.dev" data-contact-trigger data-contact-kind="email" data-contact-label="contacto@angeltechsolutions.dev" class="hover:text-white transition-colors">contacto@angeltechsolutions.dev</a>
+                    <a href="mailto:soporte-tecnico@angeltechsolutions.dev" data-contact-trigger data-contact-kind="email" data-contact-label="soporte-tecnico@angeltechsolutions.dev" class="hover:text-white transition-colors">soporte-tecnico@angeltechsolutions.dev</a>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Barranquitas%2C+Puerto+Rico+00794" target="_self" rel="noopener" data-contact-trigger data-contact-kind="location" data-contact-label="Barranquitas, Puerto Rico 00794" class="hover:text-white transition-colors">Barranquitas, Puerto Rico 00794</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-10">
+        <div class="max-w-7xl mx-auto px-6 text-center text-[12px] text-slate-500" id="footerCopy">
+            © 2026 AngelDev. Todos los derechos reservados.
+        </div>
+    </footer>
+
+<div id="contactActionModal" class="contact-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="contactActionTitle" aria-describedby="contactActionDescription">
+    <div class="contact-modal-card p-6 md:p-7">
+        <div class="flex items-start justify-between gap-4">
+            <div class="flex items-start gap-4">
+                <div class="contact-modal-icon">
+                    <span id="contactActionIcon" class="iconify" data-icon="lucide:mail" data-width="22" aria-hidden="true"></span>
+                </div>
+                <div>
+                    <h3 id="contactActionTitle" class="text-lg font-semibold text-white">Contactar por correo</h3>
+                    <p id="contactActionDescription" class="mt-2 text-sm text-slate-400 leading-relaxed">Se abrir&aacute; tu aplicaci&oacute;n de correo para escribirle directamente a AngelTech Solutions de forma profesional y r&aacute;pida.</p>
+                </div>
+            </div>
+            <button type="button" class="contact-modal-close" data-contact-close aria-label="Cerrar ventana de contacto">
+                <span class="iconify" data-icon="lucide:x" data-width="16" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="mt-5 rounded-2xl border border-white/[0.08] bg-white/[0.03] px-4 py-3">
+            <p class="text-[11px] uppercase tracking-[0.22em] text-slate-500">Destino</p>
+            <p id="contactActionTarget" class="mt-1 text-sm text-white break-all">contacto@angeltechsolutions.dev</p>
+        </div>
+        <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <button type="button" id="contactActionConfirm" class="contact-modal-primary flex-1">
+                <span>Continuar al correo</span>
+                <span class="iconify" data-icon="lucide:arrow-up-right" data-width="15" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="contact-modal-secondary flex-1" data-contact-close>Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script src="/js/thank-you.js"></script>
+<script src="/js/contact-links.js"></script>
+</body>
+</html>
+
