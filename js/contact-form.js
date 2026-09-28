@@ -241,7 +241,7 @@ window._submitContact = function(e) {
   var redir = document.createElement('input');
   redir.type = 'hidden';
   redir.name = '_redirect';
-  redir.value = window.location.origin + '/thank-you.html';
+  redir.value = window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + 'thank-you.html';
   form.appendChild(redir);
 
   form.submit();

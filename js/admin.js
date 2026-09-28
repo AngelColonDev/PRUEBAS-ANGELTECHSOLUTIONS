@@ -591,7 +591,7 @@ async function clearMessages(){
 
 // ========== RESEÑAS ==========
 function copyReviewLink(){
-  var url = window.location.origin + '/dejar-resena.html';
+  var url = window.location.origin + window.location.pathname.replace(/[^/]*$/, '') + 'dejar-resena.html';
   function done(){
     var btn = document.querySelector('[onclick="copyReviewLink()"]');
     if(!btn) return;
